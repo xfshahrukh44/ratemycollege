@@ -17,7 +17,7 @@ use App\Models\Wp_coach;
 use App\Models\Wp_submit_correction;
 use App\Models\Activitylog;
 use Carbon\Carbon;
-
+ 
 
 class HomeController extends Controller
 {
