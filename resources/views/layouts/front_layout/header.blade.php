@@ -82,7 +82,7 @@ if(isset($_GET['mainsearch'])){
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
                         
-                        <a href="https://ratemycollage.stylish-prints.com/public/" class="nav-item nav-link active">Home</a>
+                        <a href="https://ratemycollage.stylish-prints.com/public/" class="nav-item nav-link active">Homee </a>
                         <a href="https://redcraftmedia.net/ratemycollege/blog-page-24/" class="nav-item nav-link">BLOG</a>
                         <a href="https://redcraftmedia.net/ratemycollege/podcast-page-24/" class="nav-item nav-link">PODCAST</a>
                         <!-- <a href="https://redcraftmedia.net/ratemycollege/contact-us-page-24/" class="nav-item nav-link">CONTACT US</a> -->
