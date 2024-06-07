@@ -11,7 +11,7 @@
         <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="16x16" href="{{asset(!empty($favicon->img_path)?$favicon->img_path:'')}}">
         
-        <title>{{ config('app.name') }}</title>
+        <title>Hello</title>
         <!-- ============================================================== -->
         <!-- All CSS LINKS IN BELOW FILE -->
         
