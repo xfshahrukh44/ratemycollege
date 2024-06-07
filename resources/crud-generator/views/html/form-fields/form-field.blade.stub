@@ -1,0 +1,1 @@
+<input class="form-control" name="%%itemName%%" type="%%fieldType%%" id="%%itemName%%" value="<?php if(isset($%%crudNameSingular%%->%%itemName%%)){ echo $%%crudNameSingular%%->%%itemName%%; }else{ echo ''; } ?>" %%required%%>

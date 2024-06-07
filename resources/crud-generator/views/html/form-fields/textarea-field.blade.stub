@@ -1,0 +1,1 @@
+<textarea class="summernote" rows="5" name="%%itemName%%" type="%%fieldType%%" id="%%itemName%%" %%required%%> <?php if(isset($%%crudNameSingular%%->%%itemName%%)){ echo $%%crudNameSingular%%->%%itemName%%; }else{ echo ''; } ?> </textarea>
