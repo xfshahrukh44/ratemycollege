@@ -771,7 +771,7 @@ class HomeController extends Controller
     public function view_school()
     {
         
-        $get_all_schools = DB::table('wp_schools')->where('status', '1')->orderBy('id', 'desc')->get();
+        $get_all_schools = DB::table('wp_schools')->where('status', '1')->orderBy('id', 'desc')->paginate(25);
         
         return view('custom_admin.view_school', compact('get_all_schools'));
             
