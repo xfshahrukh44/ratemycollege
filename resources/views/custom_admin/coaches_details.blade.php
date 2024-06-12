@@ -165,8 +165,10 @@
                   <select class="form-select" aria-label="Default select example" id="sport">
                      <option value="0" selected> Select Sport </option>
                      @foreach($unique_options_sport as  $val_sport)
-                     <option <?php if(isset($_GET['sport'])){  if($_GET['sport'] == $val_sport){ echo 'selected'; }  } ?> value="{{ $val_sport }}"> {{ App\Models\Wp_sport::find($val_sport)->name }} </option>
-                     @endforeach
+                          @if($val_sport)
+                             <option <?php if(isset($_GET['sport'])){  if($_GET['sport'] == $val_sport){ echo 'selected'; }  } ?> value="{{ $val_sport }}"> {{ App\Models\Wp_sport::find($val_sport)->name }} </option>
+                          @endif
+                      @endforeach
                   </select>
                 </div>
                 
