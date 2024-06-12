@@ -127,9 +127,11 @@
                     
                 </div>
                 
+             
+
                 <div class="table-border">
                     
-                   
+
                         
                      <table id="examplee" class="table" >
                        <thead>
@@ -149,9 +151,38 @@
                         <tr>
                           
                           <td> {{ $key+1 }} </td>
-                          <td> {{ App\Models\Wp_coach::find($val_coach_change->id)->name }} </td>
-                          <td> {{ App\Models\Wp_school::find($val_coach_change->school_id)->name }} </td>
-                          <td> {{ App\Models\Wp_sport::find($val_coach_change->sports_id)->name }} </td>
+                            <td>
+                            
+                              <?php 
+                              
+                                  $coachh = App\Models\Wp_coach::find($val_coach_change->id);
+                                  $coachhName = $coachh ? $coachh->name : 'Null';
+                                  echo $coachhName;  
+                              ?>
+
+                            </td>
+                          <td> 
+
+                            <?php 
+                            
+                                  $schooll = App\Models\Wp_school::find($val_coach_change->school_id);
+                                  $schoollName = $schooll ? $schooll->name : 'Null';
+                                  echo $schoollName;  
+                                  
+                            ?>
+
+                          </td>
+                          
+                          
+                          <td> 
+                                <?php 
+                                
+                                $sport = App\Models\Wp_sport::find($val_coach_change->sports_id);
+                                $sportName = $sport ? $sport->name : 'Null';
+                                echo $sportName;  
+
+                                ?>
+                          </td>
                           <td> {{ $val_coach_change->updated_at }} </td>
                           
                           <!--<td>-->
@@ -171,6 +202,8 @@
                 </div>
               
 
+                {{ $get_coachchanges->links('pagination::bootstrap-4') }}
+
               
             </div>
           </div>
@@ -187,7 +220,7 @@
 
  
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     @include('custom_admin.admin_js')
 
