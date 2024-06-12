@@ -94,11 +94,11 @@
                     
                     $options = array();
                     
-                    foreach($get_coachchanges_1 as $key => $val_coach){
+                    // foreach($get_coachchanges_1 as $key => $val_coach){
                         
-                        array_push($options, $val_coach->id);
+                    //     array_push($options, $val_coach->id);
                         
-                    }
+                    // }
                     
                     // dump(print_r($options));
                     
@@ -204,7 +204,7 @@
                 
               <div class="coaches">
                 <div class="table-border">
-                <table id="example" class="table" >
+                <table id="examplee" class="table" >
                   <thead>
                     <tr>
                       <th scope="col">Coach</th>
@@ -236,6 +236,11 @@
                   </tbody>
                 </table>
                 </div>
+
+                {{ $get_coachchanges->links('pagination::bootstrap-4') }}
+
+
+
               </div>
               
               
