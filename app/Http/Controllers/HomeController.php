@@ -696,7 +696,7 @@ class HomeController extends Controller
     public function view_coach()
     {
         
-        $get_coachchanges = DB::table('wp_coaches')->where('status', '1')->orderBy('id', 'desc')->get();
+        $get_coachchanges = DB::table('wp_coaches')->where('status', '1')->orderBy('id', 'desc')->paginate(25);
         
         return view('custom_admin.view_coach', compact('get_coachchanges'));
             
