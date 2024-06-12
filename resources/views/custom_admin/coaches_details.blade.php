@@ -106,17 +106,21 @@
                     // dd($unique_options);
                 ?>
                 
-                <div class="col mx-2">
+                <!-- <div class="col mx-2">
                 
                   <select class="form-select" aria-label="Default select example" id="coach">
                     <option value="0" selected> Select Coach </option>
                     @foreach($unique_options as  $val_coach)
-                    <option <?php if(isset($_GET['coach'])){  if($_GET['coach'] == $val_coach){ echo 'selected'; }  } ?> value="{{ $val_coach }}"> {{ App\Models\Wp_coach::find($val_coach)->name }} </option>
+
+                      @if($val_coach)
+                        <option <?php //if(isset($_GET['coach'])){  if($_GET['coach'] == $val_coach){ echo 'selected'; }  } ?> value="{{ $val_coach }}"> {{ App\Models\Wp_coach::find($val_coach)->name }} </option>
+                      @endif
+
                     @endforeach
                   
                   </select>
                 </div>
-                
+                 -->
                 
                 <?php 
                     
@@ -138,7 +142,9 @@
                   <select class="form-select" aria-label="Default select example" id="school">
                      <option value="0" selected> Select School </option>
                      @foreach($unique_options_school as  $val_school)
-                     <option <?php if(isset($_GET['school'])){  if($_GET['school'] == $val_school){ echo 'selected'; }  } ?> value="{{ $val_school }}"> {{ App\Models\Wp_school::find($val_school)->name }} </option>
+                        @if($val_school)
+                            <option <?php if(isset($_GET['school'])){  if($_GET['school'] == $val_school){ echo 'selected'; }  } ?> value="{{ $val_school }}"> {{ App\Models\Wp_school::find($val_school)->name }} </option>
+                        @endif
                      @endforeach
                   </select>
                 </div>
@@ -163,12 +169,12 @@
                 
                 <div class="col mx-2">
                   <select class="form-select" aria-label="Default select example" id="sport">
-                     <option value="0" selected> Select Sport </option>
-                     @foreach($unique_options_sport as  $val_sport)
-                          @if($val_sport)
-                             <option <?php if(isset($_GET['sport'])){  if($_GET['sport'] == $val_sport){ echo 'selected'; }  } ?> value="{{ $val_sport }}"> {{ App\Models\Wp_sport::find($val_sport)->name }} </option>
-                          @endif
-                      @endforeach
+                    <option value="0" selected> Select Sport </option>
+                    @foreach($unique_options_sport as  $val_sport)
+                      @if($val_sport)
+                        <option <?php if(isset($_GET['sport'])){  if($_GET['sport'] == $val_sport){ echo 'selected'; }  } ?> value="{{ $val_sport }}"> {{ App\Models\Wp_sport::find($val_sport)->name }} </option>
+                      @endif 
+                    @endforeach
                   </select>
                 </div>
                 
@@ -198,7 +204,7 @@
                 
               <div class="coaches">
                 <div class="table-border">
-                <table id="examplee" class="table" >
+                <table id="example" class="table" >
                   <thead>
                     <tr>
                       <th scope="col">Coach</th>
