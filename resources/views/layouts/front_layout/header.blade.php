@@ -25,7 +25,7 @@ if(isset($_GET['mainsearch'])){
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-2 py-lg-0 border">
                 
                     
-                    <a href="https://ratemycollage.stylish-prints.com/public/" class="navbar-brand">
+                    <a href="https://phplaravel-1269691-4617641.cloudwaysapps.com/" class="navbar-brand">
                         <img class="img-fluid" src="{{ asset('img/logo.png') }}" alt="Logo">
                     </a>
                     
