@@ -17,7 +17,7 @@ use App\Models\Wp_coach;
 use App\Models\Wp_submit_correction;
 use App\Models\Activitylog;
 use Carbon\Carbon;
- 
+
 
 class HomeController extends Controller
 {
@@ -131,7 +131,7 @@ class HomeController extends Controller
                 
             // $get_all_coaches = DB::table('wp_coaches')->where('status' , '1')->inRandomOrder()->take(3000)->get();
             $get_all_coaches = DB::table('wp_coaches')->where('id' ,'!=', '8')->where('status' , '1')->get();
-            
+            // dd($get_all_coaches);
             $type = $id;
             
             return view('find', compact('get_all_coaches', 'type'));
@@ -173,7 +173,7 @@ class HomeController extends Controller
                 $search_coaches = DB::table('wp_coaches')->where('name', 'like', '%'.$search_value.'%')->get();
                 
                 
-                
+                 
                 if($search_coaches)
                 {
                     // dd($search_coaches);
@@ -495,19 +495,19 @@ class HomeController extends Controller
         
         if(isset($_GET['coach']))
         {
-            $get_coachchanges = DB::table('wp_coaches')->where('school_id', '!=', '8')->where('id', $_GET['coach'])->orderBy('updated_at', 'desc')->where('status', '1')->get();
+            $get_coachchanges = DB::table('wp_coaches')->where('school_id', '!=', '8')->where('id', $_GET['coach'])->orderBy('updated_at', 'desc')->where('status', '1')->paginate(25);
         }
         elseif(isset($_GET['school']))
         {
-            $get_coachchanges = DB::table('wp_coaches')->where('school_id', '!=', '8')->where('school_id', $_GET['school'])->orderBy('updated_at', 'desc')->where('status', '1')->get();
+            $get_coachchanges = DB::table('wp_coaches')->where('school_id', '!=', '8')->where('school_id', $_GET['school'])->orderBy('updated_at', 'desc')->where('status', '1')->paginate(25);
         }
         elseif(isset($_GET['sport']))
         {
-            $get_coachchanges = DB::table('wp_coaches')->where('school_id', '!=', '8')->where('sports_id', $_GET['sport'])->orderBy('updated_at', 'desc')->where('status', '1')->get();
+            $get_coachchanges = DB::table('wp_coaches')->where('school_id', '!=', '8')->where('sports_id', $_GET['sport'])->orderBy('updated_at', 'desc')->where('status', '1')->paginate(25);
         }
         else{
          
-            $get_coachchanges = DB::table('wp_coaches')->where('school_id', '!=', '8')->where('status', '1')->orderBy('updated_at', 'desc')->get();
+            $get_coachchanges = DB::table('wp_coaches')->where('school_id', '!=', '8')->where('status', '1')->orderBy('updated_at', 'desc')->paginate(25);
             
         }
         
