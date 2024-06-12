@@ -162,9 +162,13 @@
                                     ?>
                                     
                                     @foreach($array_sports as $key => $val_spot)
-                                        
-                                        <span style="background: #f0f0f0  !important; padding: 5px; border-radius: 5px; margin-left: 10px;"> {{ App\Models\Wp_sport::find($val_spot)->name }} </span>
-                                        
+
+                                        <?php $get_school_name = DB::table('wp_sports')->where('id', $val_spot)->first(); ?>
+
+                                        @if($get_school_name)
+                                        <span style="background: #f0f0f0  !important; padding: 5px; border-radius: 5px; margin-left: 10px;"> {{ $get_school_name->name }} </span>
+                                        @endif
+
                                     @endforeach
                                     
                                   </td>
@@ -179,6 +183,8 @@
                                        
                                 
                         </div>
+
+                        {{ $get_all_schools->links('pagination::bootstrap-4') }}
                       
         
                       
