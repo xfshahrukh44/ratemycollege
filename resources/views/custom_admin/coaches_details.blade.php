@@ -5,6 +5,8 @@
 
 <link rel="stylesheet" type="text/css" href="{{ asset('datatable/datatables.min.css') }}" >
 
+<!-- Select2 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
 @section('css')
 <style>
@@ -556,6 +558,8 @@
     
 </script>
 
+<!-- Select2 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
 <script>
 
