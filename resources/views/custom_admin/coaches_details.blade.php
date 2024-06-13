@@ -120,7 +120,14 @@
                 
                   <select class="form-select" aria-label="Default select example" id="coach">
                     <option value="0" selected> Select Coach </option>
-<!--                     here -->
+
+                        <!--  @foreach($unique_options as  $val_coach) -->
+    
+<!--                           @if($val_coach) -->
+<!--                             <option <?php //if(isset($_GET['coach'])){  if($_GET['coach'] == $val_coach){ echo 'selected'; }  } ?> value="{{ $val_coach }}"> {{ App\Models\Wp_coach::find($val_coach)->name }} </option> -->
+<!--                           @endif -->
+    
+<!--                         @endforeach -->
                   
                   </select>
                 </div>
