@@ -145,7 +145,7 @@
                                 
                         </div>
                       
-        
+                        {{ $get_activity_log->links('pagination::bootstrap-4') }}
                       
                     </div>
                   </div>
