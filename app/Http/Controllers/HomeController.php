@@ -154,7 +154,32 @@ class HomeController extends Controller
         
        
     }
+
+
     
+    public function autocomplete_school(Request $request)
+    {
+        $search = $request->get('query');
+        
+        $data = Wp_school::where('name', 'LIKE', "%{$search}%")->get();
+
+
+        return response()->json($data);
+    }
+
+
+
+    public function autocomplete_coach(Request $request)
+    {
+        $search = $request->get('query');
+        
+        $data = Wp_coach::where('name', 'LIKE', "%{$search}%")->get();
+
+
+        return response()->json($data);
+    }
+
+
     
     
     public function search_coach_school()
