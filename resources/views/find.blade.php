@@ -70,13 +70,8 @@ body {
                                     
                                     
                                         
-                                        <select name="school" id="single" class="form-select form-control">
+                                    <select name="school" id="single" class="form-select form-control">
                                             <option value="0"> Select a School </option>
-                                        @foreach($get_all_school as $key => $val_get_school)
-                                            
-                                            <option value="{{ $val_get_school->id }}"> {{ $val_get_school->name }} </option>
-                                            
-                                        @endforeach
                                     </select>
                                     
                                     <button type="submit" class="btn btn-primary" style="width: 150px;}">
@@ -97,11 +92,6 @@ body {
                                     
                                     <select  name="coach" id="single2" class="form-select form-control">
                                         <option value="0"> Select a Coach </option>
-                                        @foreach($get_all_coaches as $key => $val_get_coaches)
-                                            
-                                            <option value="{{ $val_get_coaches->id }}"> {{ $val_get_coaches->name }} </option>
-                                            
-                                        @endforeach
                                     </select>
                                     
                                     <button type="submit" class="btn btn-primary" style="width: 150px;}">
@@ -120,11 +110,6 @@ body {
                                     
                                     <select  name="coach" id="single2" class="form-select form-control">
                                         <option value="0"> Select a Coach </option>
-                                        @foreach($get_all_coaches as $key => $val_get_coaches)
-                                            
-                                            <option value="{{ $val_get_coaches->id }}"> {{ $val_get_coaches->name }} </option>
-                                            
-                                        @endforeach
                                     </select>
                                     
                                     <button type="submit" class="btn btn-primary" style="width: 150px;}">
