@@ -94,11 +94,11 @@
                     
                     $options = array();
                     
-                    // foreach($get_coachchanges_1 as $key => $val_coach){
+                    foreach($get_coachchanges_1 as $key => $val_coach){
                         
-                    //     array_push($options, $val_coach->id);
+                        array_push($options, $val_coach->id);
                         
-                    // }
+                    }
                     
                     // dump(print_r($options));
                     
@@ -106,21 +106,21 @@
                     // dd($unique_options);
                 ?>
                 
-                <!-- <div class="col mx-2">
+                <div class="col mx-2">
                 
                   <select class="form-select" aria-label="Default select example" id="coach">
                     <option value="0" selected> Select Coach </option>
                     @foreach($unique_options as  $val_coach)
 
                       @if($val_coach)
-                        <option <?php //if(isset($_GET['coach'])){  if($_GET['coach'] == $val_coach){ echo 'selected'; }  } ?> value="{{ $val_coach }}"> {{ App\Models\Wp_coach::find($val_coach)->name }} </option>
+                        <option <?php if(isset($_GET['coach'])){  if($_GET['coach'] == $val_coach){ echo 'selected'; }  } ?> value="{{ $val_coach }}"> {{ App\Models\Wp_coach::find($val_coach)->name }} </option>
                       @endif
 
                     @endforeach
                   
                   </select>
                 </div>
-                 -->
+                 
                 
                 <?php 
                     
