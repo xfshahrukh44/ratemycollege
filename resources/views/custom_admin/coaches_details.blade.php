@@ -558,6 +558,41 @@
 
 
 <script>
+
+    
+    $("#coach").select2({
+          placeholder: "Select a Coach",
+          allowClear: true,
+
+
+          minimumInputLength: 2,
+            
+            ajax: {
+
+                url: "{{ route('autocomplete_coach') }}",
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        query: params.term // search term
+                    };
+                },
+                processResults: function (data) {
+                    return {
+                        results: $.map(data, function (item) {
+                            return {
+                                text: item.name, // replace 'name' with the relevant field
+                                id: item.id
+                            }
+                        })
+                    };
+                },
+                cache: true
+
+            }
+
+
+      });
     
     $('#coach').change(function(){
         
