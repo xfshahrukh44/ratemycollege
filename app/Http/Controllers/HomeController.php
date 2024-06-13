@@ -900,7 +900,7 @@ class HomeController extends Controller
     public function activity_log()
     {
         
-        $get_activity_log = Activitylog::where('auth_id', auth()->user()->id)->get();
+        $get_activity_log = Activitylog::where('auth_id', auth()->user()->id)->paginate(25);
         
         return view('custom_admin.activity_log', compact('get_activity_log'));
     }
@@ -910,7 +910,7 @@ class HomeController extends Controller
     public function see_a_mistake()
     {
         
-        $get_see_a_mistake = Wp_submit_correction::all();
+        $get_see_a_mistake = Wp_submit_correction::paginate(25);
         
         return view('custom_admin.see_a_mistake', compact('get_see_a_mistake'));
         
