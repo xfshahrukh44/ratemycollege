@@ -202,8 +202,8 @@
                       <th scope="col">Coach</th>
                       <th scope="col">School</th>
                       <th scope="col">Sport</th>
-                      <th scope="col">New Coach</th>
-                      <th scope="col">New School</th>
+                      <!-- <th scope="col">New Coach</th> -->
+                      <th scope="col">Change School Request</th>
                       <th scope="col">Date Requested</th>
                       <th scope="col">Actions</th>
                     </tr>
@@ -217,7 +217,7 @@
                       <td> {{ App\Models\Wp_school::find($val_coach_change->old_school)->name }} </td>
                       <td> {{ App\Models\Wp_sport::find($val_coach_change->old_sports)->name }} </td>
                       
-                      <td> {{ App\Models\Wp_coach::find($val_coach_change->new_coach)->name }} </td>
+                      <!-- <td> {{ App\Models\Wp_coach::find($val_coach_change->new_coach)->name }} </td> -->
                       <td> {{ App\Models\Wp_school::find($val_coach_change->new_school)->name }} </td>
                       
                       <td> {{ \Carbon\Carbon::parse($val_coach_change->created_at)->format('d-m-Y H:i:s A') }}  </td>
