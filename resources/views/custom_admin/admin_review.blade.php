@@ -690,7 +690,7 @@
                   </table>
                 </div>
 
-                {{ $get_reviews->links('pagination::bootstrap-4') }}
+                {!! $get_reviews->appends(request()->input())->links('pagination::bootstrap-4') !!}
 
               </div>
               <!--<div class="d-flex pagination-a">-->
