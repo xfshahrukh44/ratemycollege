@@ -112,7 +112,7 @@
                   <select class="form-select" aria-label="Default select example" id="coach">
                     <option value="0" selected> Select Coach </option>
                     @foreach($unique_coach as  $val_coach)
-                    <option <?php if(isset($_GET['coach'])){  if($_GET['coach'] == $val_coach){ echo 'selected'; }  } ?> value="{{ $val_coach }}"> {{ App\Models\Wp_coach::find($val_coach)->name }} </option>
+                    <option <?php if(isset($_GET['coach'])){  if($_GET['coach'] == $val_coach){ echo 'selected'; }  } ?> value="{{ $val_coach }}"> {{ App\Models\Wp_coach::find($val_coach)->name ?? 'Unknown Sport' }} </option>
                     @endforeach
                   
                   </select>
@@ -142,7 +142,7 @@
                   <select class="form-select" aria-label="Default select example" id="school">
                      <option value="0" selected> Select School </option>
                      @foreach($unique_options_school as  $val_school)
-                     <option <?php if(isset($_GET['school'])){  if($_GET['school'] == $val_school){ echo 'selected'; }  } ?> value="{{ $val_school }}"> {{ App\Models\Wp_school::find($val_school)->name }} </option>
+                     <option <?php if(isset($_GET['school'])){  if($_GET['school'] == $val_school){ echo 'selected'; }  } ?> value="{{ $val_school }}"> {{ App\Models\Wp_school::find($val_school)->name ?? 'Unknown Sport' }} </option>
                      @endforeach
                   </select>
                 </div>
@@ -169,7 +169,11 @@
                   <select class="form-select" aria-label="Default select example" id="sport">
                      <option value="0" selected> Select Sport </option>
                      @foreach($unique_options_sport as  $val_sport)
-                     <option <?php if(isset($_GET['sport'])){  if($_GET['sport'] == $val_sport){ echo 'selected'; }  } ?> value="{{ $val_sport }}"> {{ App\Models\Wp_sport::find($val_sport)->name }} </option>
+                     
+                     
+                      <option <?php if(isset($_GET['sport'])){  if($_GET['sport'] == $val_sport){ echo 'selected'; }  } ?> value="{{ $val_sport }}">   {{ App\Models\Wp_sport::find($val_sport)->name ?? 'Unknown Sport' }} </option>
+                     
+
                      @endforeach
                   </select>
                 </div>
@@ -185,15 +189,14 @@
           <div class="row">
             <div class="col-xxl-12 col-md-12">
             
-             <div class="container">
-                <!-- Display success message -->
-                        @if(session('message'))
-                    <div class="alert alert-success alert-dismissible mt-3" role="alert">
-                        {{ session('message') }}
-                    </div>
-                @endif
-                
-            </div>
+              <div class="container">
+                  <!-- Display success message -->
+                  @if(session('message'))
+                      <div class="alert alert-success alert-dismissible mt-3" role="alert">
+                          {{ session('message') }}
+                      </div>
+                  @endif
+              </div>
             
                 
               <div class="rating ">
@@ -219,9 +222,9 @@
                       @foreach($get_reviews as $key => $val_review)
                       <tr>
                         <td>  <?php if($val_review->is_flag == '1'){ ?> <i style="color:red;" class="fa fa-flag"></i>   <?php } ?> </td>
-                        <td> {{ App\Models\Wp_coach::find($val_review->coach_id)->name }} </td>
-                        <td> {{ App\Models\Wp_school::find($val_review->school_id)->name }} </td>
-                        <td> {{ App\Models\Wp_sport::find($val_review->sports_id)->name }} </td>
+                        <td> {{ App\Models\Wp_coach::find($val_review->coach_id)->name ?? 'Unknown Sport' }} </td>
+                        <td> {{ App\Models\Wp_school::find($val_review->school_id)->name ?? 'Unknown Sport' }} </td>
+                        <td> {{ App\Models\Wp_sport::find($val_review->sports_id)->name ?? 'Unknown Sport' }} </td>
                         <td>
                             
                             <?php 
@@ -686,6 +689,9 @@
                     </tbody>
                   </table>
                 </div>
+
+                {{ $get_reviews->links('pagination::bootstrap-4') }}
+
               </div>
               <!--<div class="d-flex pagination-a">-->
               <!--   <nav aria-label="Page navigation example">-->
