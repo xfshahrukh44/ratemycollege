@@ -489,19 +489,19 @@ class HomeController extends Controller
         
         if(isset($_GET['coach']))
         {
-            $get_coachchanges = DB::table('coachchanges')->where('old_coach', $_GET['coach'])->orderBy('id', 'desc')->where('status', '1')->get();
+            $get_coachchanges = DB::table('coachchanges')->where('old_coach', $_GET['coach'])->orderBy('id', 'desc')->where('status', '1')->paginate(25);
         }
         elseif(isset($_GET['school']))
         {
-            $get_coachchanges = DB::table('coachchanges')->where('old_school', $_GET['school'])->orderBy('id', 'desc')->where('status', '1')->get();
+            $get_coachchanges = DB::table('coachchanges')->where('old_school', $_GET['school'])->orderBy('id', 'desc')->where('status', '1')->paginate(25);
         }
         elseif(isset($_GET['sport']))
         {
-            $get_coachchanges = DB::table('coachchanges')->where('old_sports', $_GET['sport'])->orderBy('id', 'desc')->where('status', '1')->get();
+            $get_coachchanges = DB::table('coachchanges')->where('old_sports', $_GET['sport'])->orderBy('id', 'desc')->where('status', '1')->paginate(25);
         }
         else{
          
-            $get_coachchanges = DB::table('coachchanges')->where('status', '1')->orderBy('id', 'desc')->get();
+            $get_coachchanges = DB::table('coachchanges')->where('status', '1')->orderBy('id', 'desc')->->paginate(25);
             
         }
         
