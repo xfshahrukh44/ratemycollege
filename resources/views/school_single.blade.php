@@ -165,7 +165,7 @@ body {
                               
                               <li>
                                 <div class="coach-item">
-                                    <span class="sport"> {{ $get_sprorts_by_id_male->name }} </span>
+                                    <span class="sport"> {{ $get_sprorts_by_id_male->name ?? : 'Unknown Name' }} </span>
                                     <p class="coach-name">
                                         {{ $val_male_coach->name }}
                                     </p>
