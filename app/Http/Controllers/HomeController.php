@@ -154,9 +154,9 @@ class HomeController extends Controller
         
        
     }
-
-
     
+    
+
     public function autocomplete_school(Request $request)
     {
         $search = $request->get('query');
@@ -180,7 +180,6 @@ class HomeController extends Controller
     }
 
 
-    
     
     public function search_coach_school()
     {
@@ -400,7 +399,6 @@ class HomeController extends Controller
     }
     
     
-    
         
     public function change_coach(Request $request)
     {
@@ -410,20 +408,23 @@ class HomeController extends Controller
         
         $change_coach = $request->all();
         
-        $get_coach = DB::table('wp_coaches')->where('id', $request->new_coach)->where('status', '1')->first();
-       
-        if($get_coach){
+        $get_new_coach = DB::table('wp_coaches')->where('school_id', $request->new_coach)->where('sports_id', $request->old_sports)->first();
+        
+        
+        // dd($get_new_coach);
             
-            $change_coach["new_coach"] = $get_coach->id;
-            $change_coach["new_school"] = $get_coach->school_id;
-            $change_coach["new_sports"] = $get_coach->sports_id;
-            
-            Coachchange::create($change_coach);
-            
-        }
-       
+        $change_coach["old_coach"] = $request->old_coach;
+        $change_coach["old_school"] = $request->old_school;
+        $change_coach["old_sports"] = $request->old_sports;
+
+        $change_coach["new_coach"] = $get_new_coach->id;
+        $change_coach["new_school"] = $get_new_coach->school_id;
+        $change_coach["new_sports"] = $get_new_coach->sports_id;
         
         // dd($change_coach);
+
+        Coachchange::create($change_coach);
+        
         
         //$insertactivity = DB::table('activitylogs')->insert(['activity' => 'Coaching Change Request Sent', 'auth_id' => auth()->user()->id]);
         
@@ -674,7 +675,7 @@ class HomeController extends Controller
             
             // dd($request->all());
             
-            $update_coach_chage1 = DB::table('wp_coaches')->where('id', $request->old_coach_id)->where('sports_id', $request->sports_id)->update(['school_id' => '8', 'old_coach_id' => '', 'old_school_id' => '']);
+            // $update_coach_chage1 = DB::table('wp_coaches')->where('id', $request->old_coach_id)->where('sports_id', $request->sports_id)->update(['school_id' => '8', 'old_coach_id' => '', 'old_school_id' => '']);
             
             $update_coach_chage = DB::table('wp_coaches')->where('id', $request->new_coach_id)->update(['school_id' => $request->school_id, 'sports_id' => $request->sports_id, 'old_coach_id' => $request->old_coach_id, 'old_school_id' => $request->school_id, 'old_sport_id' => $request->sports_id, 'updated_at' => now()]);
             
