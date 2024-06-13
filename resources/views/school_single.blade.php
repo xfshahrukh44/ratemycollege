@@ -202,7 +202,8 @@ body {
                                     $get_sprorts_by_id_female = DB::table('wp_sports')->where('id', $val_female_coach->sports_id)->where('status', '1')->first();
                                 
                               ?>
-                              
+
+                            <?php if($get_sprorts_by_id_female) { ?>
                               <li>
                                 <div class="coach-item">
                                     <span class="sport"> {{ $get_sprorts_by_id_female->name }} </span>
@@ -212,6 +213,8 @@ body {
                                 </div>
                                 <a href="{{ URL('coachbyid/'.$val_female_coach->id) }}" class="btn">Rate</a>
                               </li>
+                                <?php } ?>
+                                
                               @endforeach
                               
                             </ul>
