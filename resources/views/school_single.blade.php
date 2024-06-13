@@ -118,11 +118,13 @@ body {
                             <img src="img/sport.png">
                           </span> {{ $count_sport_conference }} Sports
                         </li>
-                        <li class="no_sport">
+                        
+                          <!-- <li class="no_sport">
                           <span>
                             <img src="img/Star.png">
                           </span> 4.7/5 (638)
-                        </li>
+                        </li> -->
+                          
                       </ul>
                     </div>
                   </div>
