@@ -451,15 +451,15 @@ class HomeController extends Controller
        
         if(isset($_GET['coach']))
         {
-            $get_reviews = DB::table('rates')->where('coach_id', $_GET['coach'])->where('status', '1')->orderBy('id', 'desc')->get();
+            $get_reviews = DB::table('rates')->where('coach_id', $_GET['coach'])->where('status', '1')->orderBy('id', 'desc')->paginate(25);
         }
         elseif(isset($_GET['school']))
         {
-            $get_reviews = DB::table('rates')->where('school_id', $_GET['school'])->where('status', '1')->orderBy('id', 'desc')->get();
+            $get_reviews = DB::table('rates')->where('school_id', $_GET['school'])->where('status', '1')->orderBy('id', 'desc')->paginate(25);
         }
         elseif(isset($_GET['sport']))
         {
-            $get_reviews = DB::table('rates')->where('sports_id', $_GET['sport'])->where('status', '1')->orderBy('id', 'desc')->get();
+            $get_reviews = DB::table('rates')->where('sports_id', $_GET['sport'])->where('status', '1')->orderBy('id', 'desc')->paginate(25);
         }
         else{
          
