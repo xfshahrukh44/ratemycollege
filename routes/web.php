@@ -118,6 +118,9 @@ Route::post('/post_add_school', [App\Http\Controllers\HomeController::class, 'po
 Route::get('admin/generator', ['uses'  => '\Appzcoder\LaravelAdmin\Controllers\ProcessController@getGenerator'])->middleware(['auth','checkrole']);
 Route::post('admin/generator', ['uses' => '\Appzcoder\LaravelAdmin\Controllers\ProcessController@postGenerator'])->middleware(['auth','checkrole']);
 
+Route::get('/autocomplete_school', [App\Http\Controllers\HomeController::class, 'autocomplete_school'])->name('autocomplete_school');
+Route::get('/autocomplete_coach', [App\Http\Controllers\HomeController::class, 'autocomplete_coach'])->name('autocomplete_coach');
+
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::resource('admin/pages', 'App\Http\Controllers\Admin\PagesController')->middleware(['auth','checkrole']);
