@@ -463,7 +463,7 @@ class HomeController extends Controller
         }
         else{
          
-            $get_reviews = DB::table('rates')->where('status', '1')->orderBy('id', 'desc')->get();
+            $get_reviews = DB::table('rates')->where('status', '1')->orderBy('id', 'desc')->paginate(25);
             
         }
        
@@ -474,7 +474,7 @@ class HomeController extends Controller
         $get_reviews_count = DB::table('rates')->where('status', '1')->count();
         $get_reviews_flag = DB::table('rates')->where('is_flag', '1')->where('status', '1')->count();
         
-        
+        // dd($get_reviews);
             
         return view('custom_admin.admin_review', compact('get_reviews1' , 'get_reviews', 'get_reviews_count', 'get_reviews_flag'));
             
