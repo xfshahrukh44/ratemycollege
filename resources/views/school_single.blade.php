@@ -162,16 +162,18 @@ body {
                                     $get_sprorts_by_id_male = DB::table('wp_sports')->where('id', $val_male_coach->sports_id)->where('status', '1')->first();
                                 
                               ?>
-                              
-                              <li>
-                                <div class="coach-item">
-                                    <span class="sport"> {{ $get_sprorts_by_id_male->name ?? 'Unknown Name' }} </span>
-                                    <p class="coach-name">
-                                        {{ $val_male_coach->name }}
-                                    </p>
-                                </div>
-                                <a href="{{ URL('coachbyid/'.$val_male_coach->id) }}" class="btn">Rate</a>
-                              </li>
+
+                             <?php if($get_sprorts_by_id_male) { ?>
+                                  <li>
+                                    <div class="coach-item">
+                                        <span class="sport"> {{ $get_sprorts_by_id_male->name ?? 'Unknown Name' }} </span>
+                                        <p class="coach-name">
+                                            {{ $val_male_coach->name }}
+                                        </p>
+                                    </div>
+                                    <a href="{{ URL('coachbyid/'.$val_male_coach->id) }}" class="btn">Rate</a>
+                                  </li>
+                              <?php } ?>
                               @endforeach
                              
                             </ul>
