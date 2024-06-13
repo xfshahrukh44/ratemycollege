@@ -501,7 +501,7 @@ class HomeController extends Controller
         }
         else{
          
-            $get_coachchanges = DB::table('coachchanges')->where('status', '1')->orderBy('id', 'desc')->->paginate(25);
+            $get_coachchanges = DB::table('coachchanges')->where('status', '1')->orderBy('id', 'desc')->paginate(25);
             
         }
         
