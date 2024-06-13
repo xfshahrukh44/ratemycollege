@@ -35,6 +35,14 @@
     width: 100% !important;
 }
 
+
+.select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 25px !important;
+    height: 38px !important;
+}
+    
 </style>
 @endsection
 
