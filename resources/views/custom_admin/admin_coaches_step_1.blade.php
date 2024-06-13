@@ -131,7 +131,7 @@
                                   
                                      <label> Select School </label>
                                      <select id="next_btn" class="form-control">
-                                         <option value="0" selected> Select School </option>
+                                         <option value="0" selected> Select School</option>
                                          @foreach($get_school as $key => $val_school)
                                          <option value="{{ $val_school->id }}"> {{ $val_school->name }} </option>
                                          @endforeach
@@ -245,6 +245,35 @@
   $("#next_btn").select2({
       placeholder: "Select a School",
       allowClear: true,
+
+
+      minimumInputLength: 2,
+            
+            ajax: {
+
+                url: "{{ route('autocomplete_school') }}",
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        query: params.term // search term
+                    };
+                },
+                processResults: function (data) {
+                    return {
+                        results: $.map(data, function (item) {
+                            return {
+                                text: item.name, // replace 'name' with the relevant field
+                                id: item.id
+                            }
+                        })
+                    };
+                },
+                cache: true
+
+            }
+
+
   });
   
    $("#single3").select2({
